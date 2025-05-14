@@ -1,7 +1,7 @@
-// src/components/Navbar.jsx
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,13 +23,12 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item}
-              href={`/${item.toLowerCase()}`}
-              className="text-white font-medium hover:scale-105 transform transition-all duration-300 px-3 py-1 rounded-md hover:bg-white/20 hover:shadow-lg"
+              to={item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase().replace(" ", "-")}`}              className="text-white font-medium hover:scale-105 transform transition-all duration-300 px-3 py-1 rounded-md hover:bg-white/20 hover:shadow-lg"
             >
               {item}
-            </a>
+            </Link>
           ))}
           <a
             href="/login"
@@ -49,13 +48,13 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-[#007ACC] px-6 pb-4 pt-2 space-y-4 text-white transition-all">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item}
-              href={`/${item.toLowerCase()}`}
+              to={item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase().replace(" ", "-")}`}
               className="block text-lg font-medium bg-white/10 rounded-md px-3 py-2 hover:bg-white/20 transition-all duration-300"
             >
               {item}
-            </a>
+            </Link>
           ))}
           <a
             href="/login"
