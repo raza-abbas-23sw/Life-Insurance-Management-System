@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const navItems = ["Home", "Generate Plan", "See Plans", "Search", "Contact"];
+  const navItems = ["Home", "Generate Plan", "See Plans", "Search","Add", "Contact"];
 
   return (
     <header className="bg-[#007ACC] shadow-lg w-full fixed z-50 font-sans">
